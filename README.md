@@ -22,4 +22,4 @@
 详见 [deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
 ## 参考
-(https://facebook.github.io/create-react-app/docs/getting-started).
+https://facebook.github.io/create-react-app/docs/getting-started
