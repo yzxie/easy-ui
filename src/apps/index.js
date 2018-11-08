@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { Router, Link, Route, hashHistory, IndexRoute } from 'react-router';
+import { Router, Link, Route, hashHistory } from 'react-router';
 import './App.css';
 import App from './App'
-import LogIndex from './log-app/index'
-import MonitorIndex from './monitor-app/index'
-import Login from './components/Login'
-import Register from './components/Register'
+import LogApp from './log-app/index'
+import MonitorApp from './monitor-app/index'
+import ChatApp from './chat-app/index'
+
+import Login from './common/Login'
+import Register from './common/Register'
 import Profile from './common/Profile'
 import { getIsLogin } from '../auth'
 
@@ -51,10 +53,11 @@ class Index extends Component {
         return (
             <Router history={hashHistory}>
               <Route path="/" component={App}>
-                  <Route path="/log" component={LogIndex} onEnter={this.requiredLogin}></Route>
-                  <Route path="/monitor" component={MonitorIndex} onEnter={this.requiredLogin}></Route>
+                  <Route path="/log" component={LogApp} onEnter={this.requiredLogin}></Route>
+                  <Route path="/monitor" component={MonitorApp} onEnter={this.requiredLogin}></Route>
                   <Route path="/profile" component={Profile} onEnter={this.requiredLogin}></Route>
-                  
+                  <Route path="/chat" component={ChatApp} onEnter={this.requiredLogin}></Route>
+
                   <Route path='/login' component={Login} onEnter={this.requiredNotLogin}></Route>
                   <Route path='/register' component={Register} onEnter={this.requiredNotLogin}></Route>
               </Route>       

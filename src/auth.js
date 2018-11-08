@@ -11,6 +11,6 @@ module.exports = {
     },
 
     logout() {
-        localStorage.setItem('isLogin', false)
+        localStorage.removeItem('isLogin')
     }
 }
