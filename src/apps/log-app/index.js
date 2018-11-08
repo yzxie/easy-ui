@@ -48,19 +48,19 @@ export default class LogIndex extends Component {
                     <div>
                         <div>服务端推送过来消息: {messageReceived}</div>
                         <Button onClick={e => { this.sendMessage("hello, i am react.") }}>推送消息给服务端</Button>
-                        {/* <SockJsClient 
-                    url='http://localhost:8088/broadcastEndPoint' 
-                    topics={['/topic/realLog']}
-                    onMessage={msg => { this.handleLogContentReceived(msg) }}
-                    ref={ client => { this.clientRef = client }} />
-                <br />
-                <Button onClick={e => this.sendChatMessage("hello, chat now.")}>发送p2p聊天信息</Button>
-                <SockJsClient 
-                    url="http://localhost:8088/p2pEndPoint"
-                    topics={['/user/queue/chat']}
-                    onMessage={msg => { this.handleChatReceived(msg) }}
-                    ref={ client => { this.chatClientRef = client }}
-                /> */}
+                        <SockJsClient
+                            url='http://localhost:8088/broadcastEndPoint'
+                            topics={['/topic/realLog']}
+                            onMessage={msg => { this.handleLogContentReceived(msg) }}
+                            ref={client => { this.clientRef = client }} />
+                        <br />
+                        <Button onClick={e => this.sendChatMessage("hello, chat now.")}>发送p2p聊天信息</Button>
+                        <SockJsClient
+                            url="http://localhost:8088/p2pEndPoint"
+                            topics={['/user/queue/chat']}
+                            onMessage={msg => { this.handleChatReceived(msg) }}
+                            ref={client => { this.chatClientRef = client }}
+                        />
                         <div>接收到的P2P聊天信息: {chatMessageReceived}</div>
                     </div>
                 </Content>
