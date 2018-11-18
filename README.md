@@ -7,7 +7,7 @@
 ### 日志分析系统
 功能模块与页面展示
 1. 每秒请求量统计
-![second flow stat](https://github.com/yzxie/easy-ui/tree/master/public/img/secondFlow.png)
+![second flow stat](https://raw.github.com/yzxie/easy-ui/tree/master/public/img/secondFlow.png)
 
 ### 服务器性能监控系统 
 1. 功能模块与页面展示
