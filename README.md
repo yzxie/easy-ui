@@ -5,19 +5,15 @@
 3. antd
 ## 功能模块
 ### 日志分析系统
-一. 功能模块
-
-二. 页面展示
+功能模块与页面展示
+1. 每秒请求量统计
+![second flow stat](https://github.com/yzxie/easy-ui/tree/master/public/img/secondFlow.png)
 
 ### 服务器性能监控系统 
-一. 功能模块
-
-二. 页面展示
+1. 功能模块与页面展示
 
 ### 聊天系统
-一. 功能模块
-
-二. 页面展示
+1. 功能模块与页面展示
 
 ## 命令行脚本
 ### `npm start`
