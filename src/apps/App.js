@@ -1,10 +1,10 @@
-import React, { Component, PropTypes } from 'react';
-import { Link, hashHistory } from 'react-router';
+import React, { Component } from 'react';
+import { Link, hashHistory } from 'react-router'
 import './App.css';
 import { getIsLogin } from '../auth'
 import { Layout, Menu, Dropdown, Icon } from 'antd'
 import axios from 'axios'
-import { logout } from '../auth'
+import { handleLogout } from '../auth'
 
 const { Header, Content, Footer } = Layout
 
@@ -23,19 +23,6 @@ class App extends Component {
         this.setState({ isLogin: getIsLogin() })
     }
 
-    handleLogout = () => {
-        axios({
-            method: 'get',
-            url: '/doLogout'
-        })
-        .then(res => {
-            logout()
-            hashHistory.push('/login')   
-        }).catch(err => {
-            console.log('logout err ', err)
-        })
-    }
-
     render() {
         const { isLogin } = this.state
         const accountMenu = isLogin ? (
@@ -44,7 +31,7 @@ class App extends Component {
                     <Link to="/profile">个人资料</Link>
                 </Menu.Item>
                 <Menu.Item>
-                    <Link to="/" onClick={this.handleLogout}>退出</Link>
+                    <Link to="/" onClick={handleLogout}>退出</Link>
                 </Menu.Item>
             </Menu>
         ) :
@@ -73,9 +60,9 @@ class App extends Component {
                             <Menu.Item key="1">
                                 <Link to='/log'>日志分析系统</Link>
                             </Menu.Item>
-                            <Menu.Item key="2">
+                            {/* <Menu.Item key="2">
                                 <Link to='/monitor'>服务器监控系统</Link>
-                            </Menu.Item>
+                            </Menu.Item> */}
                             <Menu.Item key="3">
                                 <Link to="/chat">聊天系统</Link>
                             </Menu.Item>

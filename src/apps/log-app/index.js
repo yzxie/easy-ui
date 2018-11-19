@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
+import { hashHistory } from 'react-router'
 import './css/index.css'
-import { Layout, Button } from 'antd'
+import { Layout } from 'antd'
 import LogSider from './components/sider'
 import SecondFlowChart from './components/secondFlowChart'
 //https://www.npmjs.com/package/react-stomp
-import SockJsClient from 'react-stomp'
+import SockJsClient from '../../lib/sockJsClient'
+import axios from 'axios'
+import { logout, handleLogout } from '../../auth'
 
 const { Content } = Layout
 
@@ -47,6 +50,8 @@ export default class LogIndex extends Component {
                 <SockJsClient
                     url='http://localhost:8088/broadcastEndPoint'
                     topics={['/topic/logMessage']}
+                    onDisconnect={() => console.log("ws disconnect")}
+                    handleLogout={handleLogout}
                     onMessage={this.handleLogMessage}
                     ref={client => { this.gropClientRef = client }} />
             </Layout>
